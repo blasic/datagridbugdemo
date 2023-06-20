@@ -16,7 +16,6 @@ const CustomToolbar = () => {
     );
 }
 
-
 function App() {
 
     const exportColor = (param) => {
