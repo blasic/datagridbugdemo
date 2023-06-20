@@ -1,23 +1,59 @@
-import logo from './logo.svg';
 import './App.css';
+import {useMemo} from "react";
+import {DataGridPro, GridToolbarContainer, GridToolbarExport} from "@mui/x-data-grid-pro";
+
+
+const rows = [
+  {id: 1, SalesOrder: 123, isExport: true},
+  {id: 2, SalesOrder: 123, isExport: false},
+]
+
+const CustomToolbar = () => {
+
+    return (
+        <GridToolbarContainer sx={{displayPrint: 'none'}}>
+               <GridToolbarExport printOptions={{}}/>
+        </GridToolbarContainer>
+    );
+}
+
+
 
 function App() {
+
+  const exportColor = (param) => {
+      console.log(param)
+      return param.row.isExport ? "yellow100": ""
+  }
+const columns = useMemo(()=> {
+  return [
+    {
+      field: 'SalesOrder',
+      type: "number",
+      cellClassName: exportColor
+    },
+  ]
+},[])
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+
+
+      <DataGridPro
+          //   sx={}
+slots={{
+    toolbar: CustomToolbar
+}}
+          columns={columns}
+          density={"compact"}
+
+          rowCount={rows.length || 0}
+          rows={rows}
+      />
     </div>
   );
 }
