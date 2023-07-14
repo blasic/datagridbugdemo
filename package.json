@@ -15,7 +15,7 @@
     "@lagunovsky/redux-react-router": "4.2.2",
     "@mui/icons-material": "5.11.16",
     "@mui/material": "5.13.5",
-    "@mui/x-data-grid-pro": "6.8.0",
+    "@mui/x-data-grid-pro": "https://pkg.csb.dev/mui/mui-x/commit/ccd685a2/@mui/x-data-grid-pro",
     "@mui/x-date-pickers-pro": "https://pkg.csb.dev/mui/mui-x/commit/ccd685a2/@mui/x-data-grid-pro",
     "gh-pages": "^5.0.0",
     "@vitejs/plugin-react": "^3.1.0",
